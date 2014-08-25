@@ -24,3 +24,4 @@
 *.opensdf
 *.sdf
 *.v11.suo
+**/Debug/*

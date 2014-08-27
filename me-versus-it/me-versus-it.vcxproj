@@ -61,8 +61,10 @@
       <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_ttf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>xcopy /B /C /Y $(SolutionDir)\libs\SDL2-2.0.3\lib\x86\*.dll $(SolutionDir)\Debug\
-xcopy /B /C /Y $(SolutionDir)\libs\SDL2_ttf-2.0.12\lib\x86\*.dll $(SolutionDir)\Debug\</Command>
+      <Command>xcopy /B /C /Y /D $(SolutionDir)\libs\SDL2-2.0.3\lib\x86\*.dll $(SolutionDir)\Debug\
+
+xcopy /B /C /Y /D $(SolutionDir)\libs\SDL2_ttf-2.0.12\lib\x86\*.dll $(SolutionDir)\Debug\
+xcopy /S /B /C /Y /D /I $(SolutionDir)\resources $(SolutionDir)\Debug\resources</Command>
       <Message>Copy x86 SDL2.dll into the Debug folder</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>

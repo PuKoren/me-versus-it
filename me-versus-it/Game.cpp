@@ -1,7 +1,10 @@
 #include "Game.h"
 
 Game::Game(){
-	m_fontColor = { 255, 255, 255, 255 };
+	m_fontColor.r = 255;
+	m_fontColor.b = 255;
+	m_fontColor.b = 255;
+	m_fontColor.a = 255;
 }
 
 Game::~Game(){

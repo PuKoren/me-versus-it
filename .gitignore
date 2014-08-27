@@ -23,5 +23,5 @@
 #visual-studio trash
 *.opensdf
 *.sdf
-*.v11.suo
+**/*.suo
 **/Debug/*

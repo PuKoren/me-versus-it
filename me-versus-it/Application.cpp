@@ -28,7 +28,7 @@ bool Application::init(){
 	}
 
 	if (TTF_Init() != 0){
-		std::cout << "TTF_Init Error: " << SDL_GetError() << std::endl;
+		std::cout << "TTF_Init Error: " << TTF_GetError() << std::endl;
 		return false;
 	}
 

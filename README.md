@@ -4,7 +4,7 @@ me-versus-it
 A game were player will get angry against computer, offers very intense gameplay for a short period of time.
 
 
-#how to install
+#how to build
 ###Windows with Visual Studio
 Download and extract SDL2 VC developpement library and SDL2_ttf VC developpement library on the official websites:  
 SDL2: https://www.libsdl.org/download-2.0.php  

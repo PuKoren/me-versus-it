@@ -87,12 +87,14 @@ xcopy /S /B /C /Y /D /I $(SolutionDir)\resources $(SolutionDir)\Debug\resources<
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Font.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="IGameObject.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Font.h" />
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="Game.h" />
   </ItemGroup>

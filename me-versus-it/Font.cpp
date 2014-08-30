@@ -5,6 +5,8 @@ Font::Font(){
 	m_size = 32;
 	m_text = "";
 	m_mainDrawTexture = nullptr;
+	m_ratio = 1.0f;
+	setPosition(0, 0);
 }
 
 Font::Font(std::string p_fontName, int p_size, std::string p_text){
@@ -12,6 +14,8 @@ Font::Font(std::string p_fontName, int p_size, std::string p_text){
 	m_size = p_size;
 	m_text = p_text;
 	m_mainDrawTexture = nullptr;
+	m_ratio = 1.0f;
+	setPosition(0, 0);
 }
 
 Font::~Font(){
@@ -52,6 +56,19 @@ void Font::setSize(int p_size){
 	this->refreshTexture();
 }
 
+void Font::setRatio(float p_ratio){
+	this->m_ratio = p_ratio;
+	int iW, iH;
+	SDL_QueryTexture(this->m_mainDrawTexture, NULL, NULL, &iW, &iH);
+	this->m_drawRect.w = iW * p_ratio;
+	this->m_drawRect.h = iH * p_ratio;
+}
+
+void Font::setPosition(int x, int y){
+	this->m_drawRect.x = x;
+	this->m_drawRect.y = y;
+}
+
 void Font::event(SDL_Event& e){
 
 }
@@ -61,10 +78,10 @@ void Font::update(float delta){
 }
 
 void Font::draw(SDL_Renderer& renderer){
-	if (m_mainDrawTexture == nullptr)
+	if (m_mainDrawTexture == nullptr){
 		m_mainDrawTexture = SDL_CreateTextureFromSurface(&renderer, m_mainDrawSurface);
-	int iW, iH;
-	SDL_QueryTexture(m_mainDrawTexture, NULL, NULL, &iW, &iH);
-	SDL_Rect dst = { 0, 0, iW, iH };
-	SDL_RenderCopy(&renderer, m_mainDrawTexture, NULL, &dst);
+		this->setRatio(this->m_ratio);
+	}
+
+	SDL_RenderCopy(&renderer, m_mainDrawTexture, NULL, &m_drawRect);
 }

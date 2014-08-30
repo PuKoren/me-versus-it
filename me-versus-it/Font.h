@@ -15,6 +15,8 @@ private:
 	SDL_Color m_fontColor;
 	SDL_Surface* m_mainDrawSurface;
 	SDL_Texture* m_mainDrawTexture;
+	SDL_Rect m_drawRect;
+	float m_ratio;
 
 	void refreshTexture();
 public:
@@ -25,6 +27,8 @@ public:
 	void event(SDL_Event&);
 	void update(float);
 	void draw(SDL_Renderer&);
+	void setRatio(float p_ratio);
+	void setPosition(int x, int y);
 	void setSize(int p_size);
 	void setText(std::string p_text);
 };

@@ -80,6 +80,10 @@ void Font::setPosition(FontPosition::FontPosition p_position){
 	this->updatePosition();
 }
 
+void Font::changeRatio(float p_ratiom){
+	this->setRatio(this->m_ratio + p_ratiom);
+}
+
 void Font::updatePosition(){
 	int iW, iH;
 	SDL_QueryTexture(this->m_mainDrawTexture, NULL, NULL, &iW, &iH);

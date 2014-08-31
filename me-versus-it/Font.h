@@ -33,6 +33,7 @@ private:
 	float m_ratio;
 
 	std::map<std::string, SDL_Texture*> m_texturesCache;
+
 	void updatePosition();
 	void refreshTexture();
 public:
@@ -43,6 +44,7 @@ public:
 	void event(SDL_Event&);
 	void update(float);
 	void draw(SDL_Renderer&);
+	void changeRatio(float p_ratiom);
 	void setRatio(float p_ratio);
 	void setPosition(int x, int y);
 	void setSize(int p_size);

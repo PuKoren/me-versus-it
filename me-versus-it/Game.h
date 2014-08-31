@@ -8,6 +8,7 @@
 class Game: public IGameObject{
 private:
 	Font m_font;
+	Font m_scoreFont;
 public:
 	Game();
 	~Game();

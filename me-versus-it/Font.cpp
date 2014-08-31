@@ -9,6 +9,15 @@ Font::Font(){
 	setPosition(0, 0);
 }
 
+Font::Font(int p_size, std::string p_text){
+	m_fontName = "resources/fonts/lato/regular.ttf";
+	m_size = p_size;
+	m_text = p_text;
+	m_mainDrawTexture = nullptr;
+	m_ratio = 1.0f;
+	setPosition(0, 0);
+}
+
 Font::Font(std::string p_fontName, int p_size, std::string p_text){
 	m_fontName = p_fontName;
 	m_size = p_size;

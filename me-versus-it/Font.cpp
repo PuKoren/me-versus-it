@@ -39,7 +39,6 @@ void Font::init(){
 
 void Font::refreshTexture(){
 	m_mainDrawSurface = TTF_RenderText_Blended(m_mainFont, m_text.c_str(), m_fontColor);
-	SDL_DestroyTexture(m_mainDrawTexture);
 	m_mainDrawTexture = nullptr;
 }
 
@@ -63,13 +62,52 @@ void Font::setRatio(float p_ratio){
 	this->m_ratio = p_ratio;
 	int iW, iH;
 	SDL_QueryTexture(this->m_mainDrawTexture, NULL, NULL, &iW, &iH);
-	this->m_drawRect.w = iW * p_ratio;
-	this->m_drawRect.h = iH * p_ratio;
+	this->m_drawRect.w = (int)(iW * p_ratio);
+	this->m_drawRect.h = (int)(iH * p_ratio);
+
+	this->updatePosition();
 }
 
 void Font::setPosition(int x, int y){
+	this->m_position = FontPosition::FREE;
 	this->m_drawRect.x = x;
 	this->m_drawRect.y = y;
+	this->updatePosition();
+}
+
+void Font::setPosition(FontPosition::FontPosition p_position){
+	this->m_position = p_position;
+	this->updatePosition();
+}
+
+void Font::updatePosition(){
+	int iW, iH;
+	SDL_QueryTexture(this->m_mainDrawTexture, NULL, NULL, &iW, &iH);
+	this->m_drawRect.w = (int)(iW * m_ratio);
+	this->m_drawRect.h = (int)(iH * m_ratio);
+
+	if(this->m_position == FontPosition::FREE) return;
+
+	switch(this->m_position){
+	case FontPosition::CENTER:
+		this->m_drawRect.x = (SCREEN_WIDTH /2) - (this->m_drawRect.w/2);
+		this->m_drawRect.y = (SCREEN_HEIGHT /2) - (this->m_drawRect.h/2);
+		break;
+	case FontPosition::TOPLEFT:
+		this->m_drawRect.x = 0;
+		this->m_drawRect.y = 0;
+		break;
+	case FontPosition::TOPRIGHT:
+		this->m_drawRect.x = SCREEN_WIDTH - this->m_drawRect.w;
+		this->m_drawRect.y = 0;
+		break;
+	case FontPosition::BOTTOMLEFT:
+		this->m_drawRect.x = 0;
+		this->m_drawRect.y = SCREEN_HEIGHT - this->m_drawRect.h;
+	case FontPosition::BOTTOMRIGHT:
+		this->m_drawRect.x = SCREEN_WIDTH - this->m_drawRect.w;
+		this->m_drawRect.y = SCREEN_HEIGHT - this->m_drawRect.h;
+	}
 }
 
 void Font::event(SDL_Event& e){

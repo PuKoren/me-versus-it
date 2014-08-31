@@ -11,7 +11,8 @@ Game::~Game(){
 
 void Game::init(){
 	m_font.init();
-	m_font.setText("Test");
+	m_font.setText("A");
+	m_font.setPosition(FontPosition::CENTER);
 }
 
 void Game::event(SDL_Event& e){

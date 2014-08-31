@@ -5,10 +5,23 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include "config.h"
 #include "IGameObject.h"
+
+namespace FontPosition{
+	enum FontPosition{
+		FREE,
+		CENTER,
+		TOPLEFT,
+		TOPRIGHT,
+		BOTTOMLEFT,
+		BOTTOMRIGHT
+	};
+};
 
 class Font : public IGameObject{
 private:
+	FontPosition::FontPosition m_position;
 	int m_size;
 	std::string m_fontName;
 	std::string m_text;
@@ -20,6 +33,7 @@ private:
 	float m_ratio;
 
 	std::map<std::string, SDL_Texture*> m_texturesCache;
+	void updatePosition();
 	void refreshTexture();
 public:
 	Font();
@@ -33,6 +47,7 @@ public:
 	void setPosition(int x, int y);
 	void setSize(int p_size);
 	void setText(std::string p_text);
+	void setPosition(FontPosition::FontPosition p_position);
 };
 
 #endif

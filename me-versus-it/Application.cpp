@@ -15,7 +15,7 @@ bool Application::init(){
 		return false;
 	}
 
-	m_window = SDL_CreateWindow("Me versus It", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_SHOWN);
+	m_window = SDL_CreateWindow("Me versus It", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 	if (m_window == nullptr){
 		std::cout << "SDL_CreateWindow Error: " << SDL_GetError() << std::endl;
 		return false;
@@ -32,6 +32,7 @@ bool Application::init(){
 		return false;
 	}
 
+	SDL_RenderSetLogicalSize(m_renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 	SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 255);
 
 	for (std::vector<IGameObject*>::iterator it = m_gameobjects.begin(); it != m_gameobjects.end(); ++it){

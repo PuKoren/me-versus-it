@@ -94,6 +94,7 @@ xcopy /S /B /C /Y /D /I $(SolutionDir)\resources $(SolutionDir)\Debug\resources<
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="config.h" />
     <ClInclude Include="Font.h" />
     <ClInclude Include="IGameObject.h" />
     <ClInclude Include="Game.h" />

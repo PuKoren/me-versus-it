@@ -4,6 +4,7 @@
 #include <SDL_ttf.h>
 #include <iostream>
 #include <string>
+#include <map>
 #include "IGameObject.h"
 
 class Font : public IGameObject{
@@ -18,6 +19,7 @@ private:
 	SDL_Rect m_drawRect;
 	float m_ratio;
 
+	std::map<std::string, SDL_Texture*> m_texturesCache;
 	void refreshTexture();
 public:
 	Font();

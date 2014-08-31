@@ -2,7 +2,7 @@
 
 Font::Font(){
 	m_fontName = "resources/fonts/lato/regular.ttf";
-	m_size = 32;
+	m_size = 512;
 	m_text = "";
 	m_mainDrawTexture = nullptr;
 	m_ratio = 1.0f;
@@ -19,7 +19,10 @@ Font::Font(std::string p_fontName, int p_size, std::string p_text){
 }
 
 Font::~Font(){
-	SDL_DestroyTexture(m_mainDrawTexture);
+	for (std::map<std::string, SDL_Texture*>::iterator it = m_texturesCache.begin() ; it != m_texturesCache.end(); ++it){
+		SDL_DestroyTexture(it->second);
+	}
+	
 	SDL_FreeSurface(m_mainDrawSurface);
 	TTF_CloseFont(m_mainFont);
 }
@@ -79,7 +82,10 @@ void Font::update(float delta){
 
 void Font::draw(SDL_Renderer& renderer){
 	if (m_mainDrawTexture == nullptr){
-		m_mainDrawTexture = SDL_CreateTextureFromSurface(&renderer, m_mainDrawSurface);
+		if(!m_texturesCache.count(m_text)){
+			m_texturesCache[m_text] = SDL_CreateTextureFromSurface(&renderer, m_mainDrawSurface);
+		}
+		m_mainDrawTexture = m_texturesCache[m_text];
 		this->setRatio(this->m_ratio);
 	}
 

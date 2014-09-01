@@ -38,7 +38,7 @@ private:
 	void refreshTexture();
 public:
 	Font();
-	Font::Font(int p_size, std::string p_text);
+	Font(int p_size, std::string p_text);
 	Font(std::string p_fontName, int p_size, std::string p_text);
 	~Font();
 	void init();

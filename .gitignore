@@ -25,3 +25,6 @@
 *.sdf
 **/*.suo
 **/Debug/*
+
+#cmake build folder used in dev
+build/*

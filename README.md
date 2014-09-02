@@ -6,7 +6,7 @@ A game were player will get angry against computer, offers very intense gameplay
 
 #how to build
 ###Windows with Visual Studio
-[Download SDL2](https://www.libsdl.org/download-2.0.php) and extract VC developpement library and [SDL2-ttf](https://www.libsdl.org/projects/SDL_ttf/) VC developpement library from the official websites.  
+[Download SDL2](https://www.libsdl.org/download-2.0.php) VC developpement library and [SDL2-ttf](https://www.libsdl.org/projects/SDL_ttf/) VC developpement library from the official websites. Then you have to extract the content of the archives is the project folder named "libs".  
 Latest versions used in project are SDL2 2.0.3 and SDL2_ttf 2.0.12  
   
 Copy the extracted folder's content into the corresponding folders in the project (we don't bundle the dll and lib files because there is not point in versionning it)

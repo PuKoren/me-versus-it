@@ -6,9 +6,7 @@ A game were player will get angry against computer, offers very intense gameplay
 
 #how to build
 ###Windows with Visual Studio
-Download and extract SDL2 VC developpement library and SDL2_ttf VC developpement library on the official websites:  
-SDL2: https://www.libsdl.org/download-2.0.php  
-SDL2_ttf: https://www.libsdl.org/projects/SDL_ttf/  
+[Download SDL2](https://www.libsdl.org/download-2.0.php) and extract VC developpement library and [SDL2-ttf](https://www.libsdl.org/projects/SDL_ttf/) VC developpement library from the official websites.  
 Latest versions used in project are SDL2 2.0.3 and SDL2_ttf 2.0.12  
   
 Copy the extracted folder's content into the corresponding folders in the project (we don't bundle the dll and lib files because there is not point in versionning it)
@@ -17,17 +15,21 @@ Copy the extracted folder's content into the corresponding folders in the projec
 
     apt-get install g++ cmake libsdl2-dev libsdl2-ttf-2.0-0  
 
-On Debian < sid, you have to manually install libsdl2-ttf. To install it, you have some dependencies:
+**On Debian < sid, you have to manually compile and install libsdl2-ttf.**
+***
+**ONLY ON DEBIAN < SID:**  
+You have a dependency with libfreetype6-dev to build libsdl2-ttf from sources
 
     apt-get install libfreetype6-dev  
-Get the sources https://www.libsdl.org/projects/SDL_ttf/
+Download the sources of [SDL2-ttf](https://www.libsdl.org/projects/SDL_ttf/)
 
     ./configure
     make
     sudo make install
-/!\ Warning ! It install in /usr/local/include/SDL2 while FindSDL2.cmake is using default install in /usr/include/SDL2. So you may want to make a symbolic link
+**Warning**: It will install in /usr/local/include/SDL2 while FindSDL2.cmake is using default install in /usr/include/SDL2. So you may want to make a symbolic link
 
     ln -s /usr/local/include/SDL2/SDL2_ttf.h /usr/include/SDL2/SDL2_ttf.h
+***
 
 Then build me-versus-it in a folder named "build", and create a symlink to the resources folder
 

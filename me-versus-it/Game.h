@@ -9,6 +9,10 @@ class Game: public IGameObject{
 private:
 	Font m_font;
 	Font m_scoreFont;
+	float m_mainFontRatio;
+	float m_growSpeed;
+	float m_maxFontRatio;
+	float m_minFontRatio;
 public:
 	Game();
 	~Game();

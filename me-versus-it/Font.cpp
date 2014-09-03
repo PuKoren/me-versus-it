@@ -55,6 +55,7 @@ void Font::setText(std::string p_text){
 	if (m_text.compare(p_text) != 0){
 		m_text = p_text;
 		this->refreshTexture();
+		this->setRatio(this->m_ratio);
 	}
 }
 

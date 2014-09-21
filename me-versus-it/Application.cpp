@@ -35,6 +35,8 @@ bool Application::init(){
 	SDL_RenderSetLogicalSize(m_renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 	SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 255);
 
+	srand(time(NULL));
+
 	for (std::vector<IGameObject*>::iterator it = m_gameobjects.begin(); it != m_gameobjects.end(); ++it){
 		(*it)->init();
 	}

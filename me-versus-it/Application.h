@@ -5,6 +5,7 @@
 #include <SDL_ttf.h>
 #include <iostream>
 #include <vector>
+#include <time.h> 
 #include "config.h"
 #include "IGameObject.h"
 #include "Game.h"

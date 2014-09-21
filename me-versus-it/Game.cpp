@@ -5,6 +5,8 @@ Game::Game(): m_scoreFont(32, "[score]"){
 	this->m_growSpeed = 0.7f;
 	this->m_maxFontRatio = 1.0f;
 	this->m_minFontRatio = 0.1f;
+	this->m_changeKeyCooldown = 5.f;
+	this->m_curentChangeKeyCooldown = 0.f;
 }
 
 Game::~Game(){
@@ -13,7 +15,10 @@ Game::~Game(){
 
 void Game::init(){
 	m_font.init();
-	m_font.setText("A");
+	
+	const char* a = SDL_GetKeyName(SDL_GetKeyFromScancode((SDL_Scancode)(rand()%(SDL_SCANCODE_Z - SDL_SCANCODE_A))));
+	m_font.setText(a);
+
 	m_font.setPosition(FontPosition::CENTER);
 
 	m_scoreFont.init();
@@ -21,7 +26,7 @@ void Game::init(){
 }
 
 void Game::event(SDL_Event& e){
-	m_font.setText((char)e.key.keysym.sym);
+	//m_font.setText((char)e.key.keysym.sym);
 }
 
 void Game::update(float delta){
@@ -35,6 +40,13 @@ void Game::update(float delta){
 	else if (this->m_mainFontRatio < this->m_minFontRatio){
 		this->m_growSpeed = -this->m_growSpeed;
 		this->m_mainFontRatio = this->m_minFontRatio;
+	}
+
+	this->m_curentChangeKeyCooldown += delta;
+	if(this->m_curentChangeKeyCooldown >= this->m_changeKeyCooldown){
+		const char* a = SDL_GetKeyName(SDL_GetKeyFromScancode((SDL_Scancode)(rand()%(SDL_SCANCODE_Z - SDL_SCANCODE_A))));
+		m_font.setText(a);
+		this->m_curentChangeKeyCooldown -= this->m_changeKeyCooldown;
 	}
 }
 

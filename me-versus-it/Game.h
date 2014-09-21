@@ -13,6 +13,9 @@ private:
 	float m_growSpeed;
 	float m_maxFontRatio;
 	float m_minFontRatio;
+
+	float m_changeKeyCooldown;
+	float m_curentChangeKeyCooldown;
 public:
 	Game();
 	~Game();

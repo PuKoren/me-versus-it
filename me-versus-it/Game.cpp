@@ -21,7 +21,7 @@ void Game::init(){
 }
 
 void Game::event(SDL_Event& e){
-
+	m_font.setText((char)e.key.keysym.sym);
 }
 
 void Game::update(float delta){

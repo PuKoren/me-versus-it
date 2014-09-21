@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <map>
 #include "config.h"
@@ -50,6 +51,7 @@ public:
 	void setPosition(int x, int y);
 	void setSize(int p_size);
 	void setText(std::string p_text);
+	void setText(char p_text);
 	void setPosition(FontPosition::FontPosition p_position);
 };
 

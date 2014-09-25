@@ -28,7 +28,7 @@ Download the sources of [SDL2-ttf](https://www.libsdl.org/projects/SDL_ttf/)
     sudo make install
 **Warning**: It will install in /usr/local/include/SDL2 while FindSDL2.cmake is using default install in /usr/include/SDL2. So you may want to make a symbolic link
 
-    ln -s /usr/local/include/SDL2/SDL2_ttf.h /usr/include/SDL2/SDL2_ttf.h
+    ln -s /usr/local/include/SDL2/SDL_ttf.h /usr/include/SDL2/SDL_ttf.h
 ***
 
 Then build me-versus-it in a folder named "build", and create a symlink to the resources folder

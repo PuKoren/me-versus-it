@@ -13,7 +13,7 @@ Copy the extracted folder's content into the corresponding folders in the projec
 
 ###Linux with CMake (Debian)  
 
-    apt-get install g++ cmake libsdl2-dev libsdl2-ttf-2.0-0  
+    apt-get install g++ cmake libsdl2-dev libsdl2-ttf-dev 
 
 **On Debian < sid, you have to manually compile and install libsdl2-ttf.**
 ***

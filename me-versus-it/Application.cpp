@@ -33,7 +33,7 @@ bool Application::init(){
 	}
 
 	SDL_RenderSetLogicalSize(m_renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
-	SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 255);
 
 	srand(time(NULL));
 

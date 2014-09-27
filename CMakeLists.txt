@@ -1,7 +1,7 @@
 #PROJECT NAME
 project(me-versus-it)
 cmake_minimum_required(VERSION 2.8)
-SET(CMAKE_CXX_FLAGS "-std=c++0x")
+SET(CMAKE_CXX_FLAGS "-std=c++11")
 
 #EXTERNAL PACKAGES (SDL2)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")

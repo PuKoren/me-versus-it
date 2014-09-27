@@ -50,9 +50,21 @@ public:
 	void setRatio(float p_ratio);
 	void setPosition(int x, int y);
 	void setSize(int p_size);
-	void setText(std::string p_text);
-	void setText(char p_text);
+    template< typename T >
+        void setText(T t);
 	void setPosition(FontPosition::FontPosition p_position);
 };
+
+
+template< typename T >
+void Font::setText(T t){
+   std::stringstream w;
+   w << t;
+   if (m_text.compare(w.str()) != 0){
+       m_text = w.str();
+       this->refreshTexture();
+       this->setRatio(this->m_ratio);
+   }
+}
 
 #endif

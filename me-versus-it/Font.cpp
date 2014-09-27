@@ -54,22 +54,6 @@ void Font::refreshTexture(){
 	m_mainDrawTexture = nullptr;
 }
 
-void Font::setText(std::string p_text){
-	if (m_text.compare(p_text) != 0){
-		m_text = p_text;
-		this->refreshTexture();
-		this->setRatio(this->m_ratio);
-	}
-}
-
-void Font::setText(char p_text){
-	std::stringstream ss;
-	std::string str;
-	ss << p_text;
-	ss >> str;
-	this->setText(str);
-}
-
 void Font::setSize(int p_size){
 	if (p_size != m_size){
 		m_size = p_size;

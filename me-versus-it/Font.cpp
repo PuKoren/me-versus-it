@@ -6,7 +6,7 @@ Font::Font(){
 	m_text = "";
 	m_mainDrawTexture = nullptr;
 	m_ratio = 1.0f;
-    m_fontColor = { 255, 255, 255, 255 };
+    m_fontColor = WHITE;
 	setPosition(0, 0);
 }
 
@@ -16,7 +16,7 @@ Font::Font(int p_size, std::string p_text){
 	m_text = p_text;
 	m_mainDrawTexture = nullptr;
 	m_ratio = 1.0f;
-    m_fontColor = { 255, 255, 255, 255 };
+    m_fontColor = WHITE;
 	setPosition(0, 0);
 }
 
@@ -26,7 +26,7 @@ Font::Font(std::string p_fontName, int p_size, std::string p_text){
 	m_text = p_text;
 	m_mainDrawTexture = nullptr;
 	m_ratio = 1.0f;
-    m_fontColor = { 255, 255, 255, 255 };
+    m_fontColor = WHITE;
 	setPosition(0, 0);
 }
 

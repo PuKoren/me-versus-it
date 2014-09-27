@@ -20,6 +20,8 @@ namespace FontPosition{
 	};
 };
 
+const SDL_Color WHITE = {255, 255, 255, 255};
+
 class Font : public IGameObject{
 private:
 	FontPosition::FontPosition m_position;

@@ -80,6 +80,10 @@ void Game::update(float delta){
 	this->m_curentChangeKeyCooldown += delta;
 	if(this->m_curentChangeKeyCooldown >= this->m_changeKeyCooldown){
         this->generateKey();
+        this->m_curScore = 0;
+        this->m_curMultiplier = 1;
+        this->m_scoreFont.setText(this->m_curScore);
+        this->m_curentChangeKeyCooldown -= this->m_changeKeyCooldown;
 	}
 }
 

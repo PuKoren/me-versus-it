@@ -52,6 +52,8 @@ public:
 	void setSize(int p_size);
     template< typename T >
         void setText(T t);
+    template< typename T >
+            void appendText(T t);
 	void setPosition(FontPosition::FontPosition p_position);
 };
 
@@ -60,6 +62,17 @@ template< typename T >
 void Font::setText(T t){
    std::stringstream w;
    w << t;
+   if (m_text.compare(w.str()) != 0){
+       m_text = w.str();
+       this->refreshTexture();
+       this->setRatio(this->m_ratio);
+   }
+}
+
+template< typename T >
+void Font::appendText(T t){
+   std::stringstream w;
+   w << m_text << t;
    if (m_text.compare(w.str()) != 0){
        m_text = w.str();
        this->refreshTexture();

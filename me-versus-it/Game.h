@@ -9,8 +9,10 @@ class Game: public IGameObject{
 private:
 	Font m_font;
 	Font m_scoreFont;
+    Font m_bestScoreFont;
 
     unsigned long long int m_curScore;
+    unsigned long long int m_bestScore;
     unsigned int m_curMultiplier;
 
 	float m_mainFontRatio;

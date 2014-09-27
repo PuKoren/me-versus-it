@@ -1,13 +1,14 @@
 #include "Game.h"
 
-Game::Game(): m_scoreFont(32, "0"){
+Game::Game(): m_scoreFont(32, "[Score]"), m_bestScoreFont(16, "[Best score]"){
 	this->m_mainFontRatio = 0.1f;
 	this->m_growSpeed = 0.7f;
 	this->m_maxFontRatio = 1.0f;
 	this->m_minFontRatio = 0.1f;
 	this->m_changeKeyCooldown = 5.f;
 	this->m_curentChangeKeyCooldown = 0.f;
-    this->m_curScore = 1;
+    this->m_curScore = 0;
+    this->m_bestScore = 0;
     this->m_curMultiplier = 1;
 }
 
@@ -22,15 +23,26 @@ void Game::init(){
 	m_scoreFont.init();
 	m_scoreFont.setPosition(FontPosition::TOPRIGHT);
 
+    m_bestScoreFont.init();
+    m_bestScoreFont.setPosition(FontPosition::BOTTOMRIGHT);
+
     this->generateKey();
 }
 
 void Game::incrementScore(){
     this->m_curScore += BASE_SCORE * this->m_curMultiplier;
+
+    if(m_curScore > m_bestScore){
+        this->m_bestScore = m_curScore;
+        this->m_bestScoreFont.setText("Best score: ");
+        this->m_bestScoreFont.appendText(this->m_curScore);
+    }
+
     if(this->m_curentChangeKeyCooldown < 1.f){
         this->m_curMultiplier++;
     }
     this->m_curentChangeKeyCooldown = 0;
+    this->m_scoreFont.setText(this->m_curScore);
 }
 
 void Game::generateKey(){
@@ -45,9 +57,8 @@ void Game::event(SDL_Event& e){
     if(e.key.keysym.scancode == m_curScanCode){
         this->generateKey();
         this->incrementScore();
-        this->m_scoreFont.setText(this->m_curScore);
     }else{
-        this->m_curScore = 1;
+        this->m_curScore = 0;
         this->m_curMultiplier = 1;
         this->m_scoreFont.setText(this->m_curScore);
     }
@@ -75,4 +86,5 @@ void Game::update(float delta){
 void Game::draw(SDL_Renderer& renderer){
 	m_scoreFont.draw(renderer);
 	m_font.draw(renderer);
+    m_bestScoreFont.draw(renderer);
 }

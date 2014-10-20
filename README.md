@@ -2,7 +2,7 @@ me-versus-it
 ============
 
 A game were player will get angry against computer, offers very intense gameplay for a short period of time.
-
+[ ![Codeship Status for PuKoren/me-versus-it](https://www.codeship.io/projects/452d9840-3a93-0132-083a-261a2707f8ca/status)](https://www.codeship.io/projects/42405)
 
 #how to build
 ###Windows with Visual Studio
